@@ -1,27 +1,83 @@
-# Patient Risk Readmission Prediction
+<div align="center">
 
-## Project Overview
-This project focuses on analyzing and predicting the likelihood of diabetic patients being readmitted to the hospital within 30 days of their discharge. Readmission within an early timeframe (<30 days) often indicates complications, high-risk cases, or an escalation in medical urgency. 
+# 🏥 Patient Risk Readmission Prediction
 
-The primary goal of this data analysis framework is to identify critical, complex cases and ultimately generate a custom **VCI (Vulnerability, Complexity, and Intensity) Risk Score**. This score helps stratify patients into Low, Medium, and High-Risk categories to better allocate medical resources and plan patient aftercare.
+**A comprehensive data analytics framework to predict early hospital readmission (<30 days) for diabetic patients using custom clinical risk scoring.**
 
-## Key Phases
-1. **Data Cleaning and Preprocessing:** Handled missing variables, dropped sparse columns (such as patient weight), excluded expired records, and handled redundant duplicate rows.
-2. **ICD-9 Diagnosis Scrape Integration:** Retrieved fast ICD-9 descriptions for the primary diagnoses to add comprehensive definitions to raw diagnosis codes via web scraping.
-3. **Exploratory Data Analysis (EDA):** Generated insights based on various demographic features (age, gender, race) and medical indicators (insulin use vs other meds, medication dose changes, length of initial stay, lab tests). Views are saved in the `Project_Charts` directory.
-4. **VCI Risk Level Stratification:** Calculated length of stay, admission acuity, comorbidity, and emergency metrics into a single custom unified VCI score to validate the correlation with actual early patient readmissions.
+[![Python](https://img.shields.io/badge/Python-3.x-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg?style=for-the-badge&logo=jupyter)](https://jupyter.org/)
+[![Pandas](https://img.shields.io/badge/Data-Pandas-150458.svg?style=for-the-badge&logo=pandas)](https://pandas.pydata.org/)
+[![Seaborn](https://img.shields.io/badge/Vis-Seaborn-4C72B0.svg?style=for-the-badge)](https://seaborn.pydata.org/)
 
-## Included Files
-- `health.ipynb`: The main Jupyer Notebook covering data processing, visualizations, and risk score generation.
-- `diabetic_data.csv`: The main source dataset containing patient interactions, demographics, and clinical attributes.
-- `IDs_mapping.csv`: A dictionary containing text mapping information to decode internal dataset IDs.
-- `final_processed_diabetic_data.csv`: The clean, output dataset enriched with custom diagnostic views and VCI score mappings.
-- `Project_Charts/`: Contains visual charts derived from statistical findings in Phase 3 & 4. 
+</div>
 
-## Requirements
-- Python 3.x
-- Pandas
-- Numpy
-- Seaborn
-- Matplotlib
-- BeautifulSoup4 (for ICD-9 code scraping)
+<br>
+
+<div align="center">
+  <img src="Project_Charts/1_readmission_distribution.png" width="60%" alt="Readmission Distribution">
+</div>
+
+---
+
+## 📖 About The Project
+
+Early hospital readmission is a critical metric for healthcare quality. Readmissions within 30 days of discharge often point to clinical complications, high-risk conditions, or the need for escalated medical care. 
+
+This project tackles this challenge by processing complex Electronic Medical Records (EMR) for diabetic patients and developing a custom **VCI (Vulnerability, Complexity, and Intensity) Risk Score**. This algorithm accurately categorizes patients into **Low, Medium, and High-Risk** stratums, allowing medical professionals to optimize resource allocation and aftercare planning.
+
+---
+
+## ⚡ Key Analytical Phases
+
+- 🧹 **Phase 1: Data Engineering & Cleaning**  
+  Aggressively cleaned missing data (e.g., dropping the sparse `weight` column), purged deceased patient records, mapped encoded clinical variables, and formatted the dataset for integrity.
+  
+- 🌐 **Phase 2: Automated ICD-9 Web Scraping**   
+  Integrated a lightweight web scraper using `BeautifulSoup4` to automatically fetch high-level medical descriptions for primary diagnosis ICD-9 codes, enriching the raw dataset with human-readable conditions.
+
+- 📊 **Phase 3: Exploratory Data Analysis (EDA)**  
+  Extracted deep clinical insights analyzing relationships such as *Insulin Use vs. Alternate Meds*, *Dosage Change Impacts*, *Demographic Overlaps*, and *Operational Correlations* (stay length vs. lab procedures).
+  
+- 🧮 **Phase 4: VCI Risk Score Architecture**  
+  Engineered an aggregate clinical metric by scoring the patient's **L**ength of stay, **A**cuity of admission, **C**omorbidity (number of diagnoses), and **E**mergency visit history. 
+
+---
+
+## 📂 Repository Structure
+
+| File / Folder | Description |
+| :--- | :--- |
+| 📓 `health.ipynb` | The core Jupyter Notebook containing all data cleaning, scraping, EDA, and logic. |
+| 🗃️ `diabetic_data.csv` | The raw baseline dataset containing clinical patient encounters. |
+| 🗂️ `IDs_mapping.csv` | Key dictionary utilized to map numeric database IDs to readable text. |
+| 💾 `final_processed_diabetic_data.csv` | Clean, pipeline-ready data generated with full mappings and VCI scores attached. |
+| 📈 `Project_Charts/` | Directory containing high-quality rendered statistical visualizations. |
+
+---
+
+## 🚀 Quick Start & Usage
+
+To run the analysis natively on your machine, ensure you have Python 3 installed along with the required analytical libraries.
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Matheesha-Abiman/Patient-Risk-Readmission-Prediction.git
+   cd Patient-Risk-Readmission-Prediction
+   ```
+
+2. **Install required dependencies:**
+   ```bash
+   pip install pandas numpy seaborn matplotlib beautifulsoup4 requests
+   ```
+
+3. **Launch the Notebook:**
+   ```bash
+   jupyter notebook health.ipynb
+   ```
+   > *Note: Execute the cells sequentially to watch the data clean itself, fetch live ICD-9 data, and generate the phase views directly into the `Project_Charts` folder.*
+
+---
+
+<div align="center">
+  <i>Developed with ❤️ for predictive healthcare analytics.</i>
+</div>
