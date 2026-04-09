@@ -27,6 +27,15 @@ This project tackles this challenge by processing complex Electronic Medical Rec
 
 ---
 
+## 👥 Team
+
+| Name | GitHub |
+|------|--------|
+| Matheesha Abiman | [@Matheesha-Abiman](https://github.com/Matheesha-Abiman) |
+| Ashen Indeewara | [@AshenIndeewara](https://github.com/AshenIndeewara) |
+| Janith Umayanga | [@janithumayanga2004](https://github.com/janithumayanga2004) |
+| Induma Kaweeshvara | [@indumakaweeshvara](https://github.com/indumakaweeshvara) |
+
 ## ⚡ Key Analytical Phases
 
 - 🧹 **Phase 1: Data Engineering & Cleaning**  
